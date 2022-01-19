@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    list-style: none;
+
+}
+
+body{
+
+    background: linear-gradient(grey, blueviolet);
+    font-family: Arial, Sans-serif;
+
+}
+
+.container{
+
+    width: 718px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+
+h1{
+
+    color: #fff;
+    text-align: center; margin-bottom: 20px;
+
+}
+
+ul.thumbs img{
+
+    border: #333 solid 4px;
+}
+
+ul.thumbs a{
+
+    display: block;
+    position: relative;  
+    width: 85px; 
+    height: 55px; 
+    border: 4px solid transparent; 
+    font: 12px/25px Arial, sans-serif;  
+    text-decoration: none; 
+    color: #524d4d; 
+    text-shadow: 1px 1px 0px rgba(255, 255, 255), inset 1px 1px 0px rgba(0, 0, 0, 0.15); 
+
+}
+
+ul.thumbs li{
+
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 9px;
+}
+
+
+
+ul.slides {
+
+    overflow: hidden;
+    clear: both;
+    border: #333 solid 4px;
+
+}
+
+ul.slides,
+ul.slides li,
+ul.slides a,
+ul.slides img{
+
+    width: 705px;
+    height: 350px;
+    position: relative;
+
+}
+
+ul.slides li{
+
+    position: absolute;
+    z-index: 50;
+}
+
+ul.thumbs li a:hover span{
+
+    position: absolute;
+    z-index: 101;
+    bottom: -30px;
+    /* left: -22px; */
+    display: block;
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0px 1px 0px rgba(0,0,0,0.4);
+    background-color: white;
+    background: linear-gradient(top, #fff 0% #bcbcbc 100%);
+}
+
+ul.thumbs li span{
+
+    display: none;
+}
+
+
+ul.thumbs li a:hover span:before{
+
+    width: 0;
+    height: 0;
+    border-bottom: 5px solid #fff;
+
+    border-left: 5px solid transparent;
+
+    border-right: 5px solid transparent;
+
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 44px;
+}
+
+ul.thumbs li:first-child a:hover span{
+
+    left: -3px;
+}
+
+@keyframes slide{
+
+    0%{left: -500px;}
+    100%{left: 0;}
+    
+}
+
+ul.slides li:target{
+
+    z-index: 100;
+    animation-name: slide;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes NoTarget{
+
+    0%{z-index: 75;}
+    100%{z-index: 75;}
+
+}
+
+ul.slides li:not(:target){
+
+animation-name: NoTarget;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+
+}
